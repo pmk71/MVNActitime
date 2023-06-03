@@ -1,6 +1,7 @@
 package com.actitime.testscripts;
 
 import org.testng.annotations.Test;
+import org.testng.annotations.Test;
 
 import com.actitime.generic.BaseClass;
 import com.actitime.pom.EnterTimeTrack;
