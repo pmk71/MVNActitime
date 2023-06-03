@@ -54,14 +54,9 @@ public class CustomeModule extends BaseClass {
 		ts.getFirstCustemerinserachBox().click();
 		ts.getEditcustomerOrProject().click();
 		WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(20));
-		try
-		{
+
 			wait.until(ExpectedConditions.elementToBeClickable(ts.getActionsButton()));
 
-		}
-		catch (Exception e) {
-			// TODO: handle exception
-		}
 		ts.getActionsButton().click();
 		ts.getDeleteButton().click();
 		ts.getDeletePermanentlyBtn().click();

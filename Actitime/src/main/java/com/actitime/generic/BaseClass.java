@@ -26,7 +26,7 @@ public class BaseClass {
 		}
 		public static WebDriver driver;
 		@Parameters("browser")
-		@BeforeClass
+		@BeforeClass(alwaysRun = true)
 		public void openBrowser(@Optional("chrome")String  browser)
 		{
 			if(browser.equals("chrome"))
@@ -60,7 +60,7 @@ public class BaseClass {
 
 		}
 		
-		@AfterClass
+		@AfterClass(alwaysRun = true)
 		public void closeBrowser()
 		{
 			Reporter.log("Close Browser",true);

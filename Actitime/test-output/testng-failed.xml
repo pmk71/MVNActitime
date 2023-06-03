@@ -3,15 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.actitime.testscripts.ProjectModule">
+      <class name="com.actitime.testscripts.CustomeModule">
         <methods>
           <include name="logout"/>
           <include name="closeBrowser"/>
-          <include name="createProject"/>
+          <include name="testCreateCustomer"/>
+          <include name="testDeleteCustomer"/>
           <include name="login"/>
           <include name="openBrowser"/>
         </methods>
-      </class> <!-- com.actitime.testscripts.ProjectModule -->
+      </class> <!-- com.actitime.testscripts.CustomeModule -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
