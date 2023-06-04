@@ -26,7 +26,8 @@ public class BaseClass {
 		}
 		public static WebDriver driver;
 		@Parameters("browser")
-		@BeforeClass(alwaysRun = true)
+		@BeforeClass
+		
 		public void openBrowser(@Optional("chrome")String  browser)
 		{
 			if(browser.equals("chrome"))
@@ -39,14 +40,14 @@ public class BaseClass {
 				
 			}
 			Reporter.log("open Browser",true);
-			driver.get("https://demo.actitime.com/");
-			driver.manage().window().maximize();
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+			
 		}
 		@BeforeMethod
 		public void login()
 		{
-
+			driver.get("https://demo.actitime.com/");
+			driver.manage().window().maximize();
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 			Login l= new Login(driver);
 			l.setLogin("admin", "manager");
 
@@ -60,7 +61,7 @@ public class BaseClass {
 
 		}
 		
-		@AfterClass(alwaysRun = true)
+		@AfterClass
 		public void closeBrowser()
 		{
 			Reporter.log("Close Browser",true);

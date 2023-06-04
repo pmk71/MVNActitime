@@ -3,7 +3,13 @@ package com.actitime.testscripts;
 
 
 import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
+
+import org.testng.annotations.Test;
+
+
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
 import java.time.Duration;
 
 import org.openqa.selenium.By;
@@ -19,11 +25,11 @@ import org.testng.annotations.Test;
 import com.actitime.generic.BaseClass;
 import com.actitime.pom.EnterTimeTrack;
 import com.actitime.pom.TaskList;
+@Test
 @Listeners(com.actitime.generic.ITestListenerImplementation.class)
 public class CustomeModule extends BaseClass {
 
-	@Test
-	public void testCreateCustomer() throws InterruptedException
+	public void testCreateCustomer()
 	{
 
 		EnterTimeTrack ett= new EnterTimeTrack(driver);
@@ -31,7 +37,7 @@ public class CustomeModule extends BaseClass {
 		TaskList ts= new TaskList(driver);
 		ts.getAddNewButton().click();
 		ts.getNewCustomer().click();
-		String projectname = "HDFC_03";
+		String projectname = "HDFC_04";
 		ts.getEnterCustomerNameTbx().sendKeys(projectname);
 		ts.getEnterCustomerDescriptiontbx().sendKeys("Bank Project");
 		ts.getCreateCustomer().click();
@@ -40,12 +46,11 @@ public class CustomeModule extends BaseClass {
 		wait.until(ExpectedConditions.visibilityOf(ele));
 		String atext = ts.getActualCustomerName().getText();
 
-		Assert.assertEquals(atext,"HDFC_03");
+		Assert.assertEquals(atext,"HDFC_04");
 		Assert.assertTrue(ele.isDisplayed(),"element is not displayed");
 
 	}
-	@Test
-	public void testDeleteCustomer() throws InterruptedException
+	public void testDeleteCustomer() 
 	{
 		EnterTimeTrack ett= new EnterTimeTrack(driver);
 		ett.getTasksTab().click();
@@ -55,7 +60,7 @@ public class CustomeModule extends BaseClass {
 		ts.getEditcustomerOrProject().click();
 		WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(20));
 
-			wait.until(ExpectedConditions.elementToBeClickable(ts.getActionsButton()));
+		wait.until(ExpectedConditions.elementToBeClickable(ts.getActionsButton()));
 
 		ts.getActionsButton().click();
 		ts.getDeleteButton().click();
